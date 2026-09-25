@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | WIN ZONE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:
+                radial-gradient(circle at 20% 20%,rgba(0,229,255,.10),transparent 30%),
+                radial-gradient(circle at 80% 80%,rgba(124,77,255,.12),transparent 30%),
+                #020711;
+            color:white;
+        }
+
+        .admin-login {
+            width:min(460px,calc(100% - 30px));
+        }
+
+        .brand {
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        .brand h1 {
+            font-size:35px;
+            margin:8px 0;
+        }
+
+        .brand p {
+            color:#91a2b7;
+            font-size:13px;
+        }
+
+        .card {
+            padding:28px;
+            border-radius:22px;
+            background:rgba(13,27,46,.97);
+            border:1px solid rgba(255,255,255,.09);
+        }
+
+        .group {
+            margin-bottom:18px;
+        }
+
+        label {
+            display:block;
+            margin-bottom:8px;
+            font-size:13px;
+            font-weight:700;
+        }
+
+        input {
+            width:100%;
+            padding:15px;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,.12);
+            background:rgba(255,255,255,.04);
+            color:white;
+            outline:none;
+        }
+
+        input:focus {
+            border-color:#00e5ff;
+        }
+
+        .button {
+            width:100%;
+            padding:15px;
+            border:0;
+            border-radius:12px;
+            background:linear-gradient(90deg,#00e5ff,#7c4dff);
+            color:#03101c;
+            font-weight:900;
+            cursor:pointer;
+        }
+
+        .security {
+            margin-top:18px;
+            color:#91a2b7;
+            font-size:11px;
+            line-height:1.7;
+            text-align:center;
+        }
+
+        .status {
+            display:none;
+            margin-top:15px;
+            padding:13px;
+            border-radius:12px;
+            background:rgba(255,77,109,.08);
+            border:1px solid rgba(255,77,109,.15);
+            color:#ffb1bf;
+            font-size:12px;
+        }
+
+        .status.show {
+            display:block;
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="admin-login">
+
+    <section class="brand">
+
+        <div class="wz-badge wz-badge-danger">
+            ADMINISTRATOR
+        </div>
+
+        <h1>WIN ZONE</h1>
+
+        <p>
+            Secure administration portal
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <form id="adminLogin">
+
+            <div class="group">
+
+                <label for="email">
+                    Admin Email
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="admin@example.com"
+                    required
+                >
+
+            </div>
+
+            <div class="group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter admin password"
+                    required
+                >
+
+            </div>
+
+            <button class="button" type="submit">
+                Secure Admin Login
+            </button>
+
+            <div id="status" class="status"></div>
+
+        </form>
+
+        <div class="security">
+            Production admin authentication must be handled by
+            the backend with role-based authorization, secure
+            sessions, strong credentials and appropriate security
+            controls. Never protect the admin area only by hiding
+            its URL.
+        </div>
+
+    </section>
+
+</main>
+
+<script src="js/global.js"></script>
+
+<script>
+document.getElementById("adminLogin")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const status = document.getElementById("status");
+
+        status.classList.add("show");
+
+        status.innerHTML =
+            "<strong>Admin authentication is not connected.</strong><br>" +
+            "This frontend prototype does not authenticate or authorize administrators. " +
+            "The production backend must verify the admin role before granting access.";
+
+    });
+</script>
+
+</body>
+</html>

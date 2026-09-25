@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transactions | WIN ZONE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background:
+                radial-gradient(circle at 10% 10%,rgba(0,229,255,.10),transparent 30%),
+                radial-gradient(circle at 90% 10%,rgba(124,77,255,.12),transparent 30%),
+                #030914;
+            color:white;
+        }
+
+        .transactions-page {
+            max-width:1050px;
+            margin:auto;
+            padding:45px 20px 70px;
+        }
+
+        .page-title {
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .page-title h1 {
+            font-size:42px;
+            margin:10px 0;
+        }
+
+        .page-title p {
+            color:#9eafc4;
+        }
+
+        .filters {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+            margin-bottom:20px;
+        }
+
+        .filters select {
+            width:100%;
+            padding:14px;
+            background:#0d1b2e;
+            color:white;
+            border:1px solid rgba(255,255,255,.1);
+            border-radius:12px;
+        }
+
+        .transaction-card {
+            background:rgba(13,27,46,.95);
+            border:1px solid rgba(255,255,255,.09);
+            border-radius:20px;
+            overflow:hidden;
+        }
+
+        .transaction-header,
+        .transaction-row {
+            display:grid;
+            grid-template-columns:1.2fr 1fr 1fr 1fr;
+            gap:15px;
+            align-items:center;
+            padding:17px 20px;
+        }
+
+        .transaction-header {
+            color:#91a2b7;
+            font-size:11px;
+            text-transform:uppercase;
+            letter-spacing:.7px;
+            background:rgba(255,255,255,.03);
+        }
+
+        .transaction-row {
+            border-top:1px solid rgba(255,255,255,.06);
+            font-size:13px;
+        }
+
+        .transaction-row.empty {
+            display:block;
+            text-align:center;
+            padding:60px 20px;
+            color:#91a2b7;
+        }
+
+        .type {
+            font-weight:800;
+        }
+
+        .amount-positive {
+            color:#45e483;
+            font-weight:800;
+        }
+
+        .amount-negative {
+            color:#ff8095;
+            font-weight:800;
+        }
+
+        .muted {
+            color:#91a2b7;
+        }
+
+        .nav-buttons {
+            display:flex;
+            gap:10px;
+            justify-content:center;
+            margin-top:25px;
+            flex-wrap:wrap;
+        }
+
+        .nav-buttons a {
+            padding:11px 17px;
+            border-radius:11px;
+            color:white;
+            background:rgba(255,255,255,.05);
+            text-decoration:none;
+        }
+
+        @media(max-width:700px) {
+
+            .filters {
+                grid-template-columns:1fr;
+            }
+
+            .transaction-header {
+                display:none;
+            }
+
+            .transaction-row {
+                grid-template-columns:1fr 1fr;
+            }
+
+            .page-title h1 {
+                font-size:34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="wz-header">
+    <div class="wz-header-inner">
+
+        <a href="dashboard.html" class="wz-logo">
+            WIN ZONE
+        </a>
+
+        <div>
+            <a href="wallet.html" style="color:white;text-decoration:none;margin-right:15px;">
+                Wallet
+            </a>
+
+            <a href="account.html" style="color:white;text-decoration:none;">
+                Account
+            </a>
+        </div>
+
+    </div>
+</header>
+
+<main class="transactions-page">
+
+    <section class="page-title">
+
+        <div class="wz-badge">WALLET HISTORY</div>
+
+        <h1>Transactions</h1>
+
+        <p>
+            Review deposits, withdrawals, match funds, payouts and other wallet activity.
+        </p>
+
+    </section>
+
+    <section class="filters">
+
+        <select id="typeFilter">
+            <option value="all">All transaction types</option>
+            <option value="deposit">Deposits</option>
+            <option value="withdrawal">Withdrawals</option>
+            <option value="stake">Match Stakes</option>
+            <option value="payout">Payouts</option>
+            <option value="commission">Commission</option>
+        </select>
+
+        <select id="statusFilter">
+            <option value="all">All statuses</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="failed">Failed</option>
+        </select>
+
+    </section>
+
+    <section class="transaction-card">
+
+        <div class="transaction-header">
+            <div>Transaction</div>
+            <div>Amount</div>
+            <div>Status</div>
+            <div>Date</div>
+        </div>
+
+        <div id="transactionList">
+
+            <div class="transaction-row empty">
+                <strong>No transactions yet.</strong>
+                <br><br>
+                Your deposits, withdrawals, match stakes and payouts
+                will appear here once real wallet activity exists.
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="nav-buttons">
+
+        <a href="wallet.html">Wallet</a>
+        <a href="deposit.html">Deposit</a>
+        <a href="withdraw.html">Withdraw</a>
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</main>
+
+<script src="js/global.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const typeFilter = document.getElementById("typeFilter");
+    const statusFilter = document.getElementById("statusFilter");
+
+    function filterNotice() {
+
+        const type = typeFilter.value;
+        const status = statusFilter.value;
+
+        console.log(
+            "Transaction filters:",
+            type,
+            status
+        );
+
+        /*
+         * Production:
+         * Fetch authenticated transactions from
+         * the backend and filter server-side where
+         * appropriate.
+         */
+    }
+
+    typeFilter.addEventListener("change", filterNotice);
+    statusFilter.addEventListener("change", filterNotice);
+
+});
+</script>
+
+</body>
+</html>

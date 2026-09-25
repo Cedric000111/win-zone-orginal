@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Match Result | WIN ZONE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background:
+                radial-gradient(circle at 50% 0%,rgba(124,77,255,.12),transparent 30%),
+                #030914;
+            color:white;
+        }
+
+        .loss-page {
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px 20px;
+        }
+
+        .loss-card {
+            max-width:600px;
+            width:100%;
+            text-align:center;
+            padding:40px 28px;
+            border-radius:26px;
+            background:rgba(13,27,46,.96);
+            border:1px solid rgba(255,255,255,.09);
+        }
+
+        .icon {
+            font-size:60px;
+        }
+
+        h1 {
+            font-size:42px;
+            margin:12px 0;
+        }
+
+        .muted {
+            color:#9eafc4;
+            line-height:1.7;
+        }
+
+        .result {
+            margin:25px 0;
+            padding:20px;
+            border-radius:16px;
+            background:rgba(255,255,255,.035);
+        }
+
+        .row {
+            display:flex;
+            justify-content:space-between;
+            padding:10px 0;
+            color:#9eafc4;
+        }
+
+        .row + .row {
+            border-top:1px solid rgba(255,255,255,.05);
+        }
+
+        .row strong {
+            color:white;
+        }
+
+        .actions {
+            display:grid;
+            gap:10px;
+            margin-top:20px;
+        }
+
+        .actions a {
+            text-decoration:none;
+            color:white;
+            padding:14px;
+            border-radius:12px;
+            background:rgba(255,255,255,.05);
+        }
+
+        .actions a.primary {
+            background:linear-gradient(90deg,#00e5ff,#7c4dff);
+            color:#03101c;
+            font-weight:900;
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="loss-page">
+
+    <section class="loss-card">
+
+        <div class="icon">🎮</div>
+
+        <div class="wz-badge wz-badge-danger">
+            MATCH RESULT
+        </div>
+
+        <h1>Match Lost</h1>
+
+        <p class="muted">
+            The recorded result indicates that you did not win this match.
+        </p>
+
+        <div class="result">
+
+            <div class="row">
+                <span>Match Code</span>
+                <strong>A7K2</strong>
+            </div>
+
+            <div class="row">
+                <span>Your Stake</span>
+                <strong>$5.00</strong>
+            </div>
+
+            <div class="row">
+                <span>Prize Pool</span>
+                <strong>$10.00</strong>
+            </div>
+
+            <div class="row">
+                <span>Payout</span>
+                <strong>$0.00</strong>
+            </div>
+
+        </div>
+
+        <p class="muted" style="font-size:12px;">
+            If you believe the result is incorrect or there was a problem
+            during the match, you can submit a dispute.
+        </p>
+
+        <div class="actions">
+
+            <a href="dispute.html" class="primary">
+                Report a Dispute
+            </a>
+
+            <a href="wallet.html">
+                View Wallet
+            </a>
+
+            <a href="transactions.html">
+                View Transactions
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="js/global.js"></script>
+
+</body>
+</html>

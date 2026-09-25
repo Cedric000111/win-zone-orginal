@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account | WIN ZONE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background:
+                radial-gradient(circle at 80% 10%,rgba(124,77,255,.12),transparent 30%),
+                #030914;
+            color:white;
+        }
+
+        .account-page {
+            max-width:850px;
+            margin:auto;
+            padding:45px 20px 70px;
+        }
+
+        .heading {
+            text-align:center;
+            margin-bottom:28px;
+        }
+
+        .heading h1 {
+            font-size:40px;
+            margin:10px 0;
+        }
+
+        .heading p {
+            color:#9eafc4;
+        }
+
+        .card {
+            background:rgba(13,27,46,.95);
+            border:1px solid rgba(255,255,255,.09);
+            border-radius:21px;
+            padding:25px;
+            margin-bottom:17px;
+        }
+
+        .card h2 {
+            margin-top:0;
+        }
+
+        .profile-grid {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+        }
+
+        .item {
+            padding:15px;
+            border-radius:13px;
+            background:rgba(255,255,255,.035);
+        }
+
+        .item small {
+            display:block;
+            color:#91a2b7;
+            margin-bottom:6px;
+        }
+
+        .item strong {
+            word-break:break-word;
+        }
+
+        .setting {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:15px;
+            padding:15px 0;
+        }
+
+        .setting + .setting {
+            border-top:1px solid rgba(255,255,255,.06);
+        }
+
+        .setting span {
+            color:#9eafc4;
+            font-size:13px;
+        }
+
+        .setting a {
+            color:#00e5ff;
+            text-decoration:none;
+        }
+
+        .logout {
+            width:100%;
+            padding:14px;
+            border:0;
+            border-radius:12px;
+            background:rgba(255,77,109,.10);
+            color:#ff9dae;
+            font-weight:800;
+            cursor:pointer;
+        }
+
+        @media(max-width:650px) {
+            .profile-grid {
+                grid-template-columns:1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="wz-header">
+    <div class="wz-header-inner">
+
+        <a href="dashboard.html" class="wz-logo">
+            WIN ZONE
+        </a>
+
+        <a href="dashboard.html" style="color:white;text-decoration:none;">
+            Dashboard
+        </a>
+
+    </div>
+</header>
+
+<main class="account-page">
+
+    <section class="heading">
+
+        <div class="wz-badge">
+            ACCOUNT
+        </div>
+
+        <h1>Account Settings</h1>
+
+        <p>
+            Manage your profile, security and WIN ZONE preferences.
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Profile</h2>
+
+        <div class="profile-grid">
+
+            <div class="item">
+                <small>Name</small>
+                <strong>Player</strong>
+            </div>
+
+            <div class="item">
+                <small>Email</small>
+                <strong>Not connected</strong>
+            </div>
+
+            <div class="item">
+                <small>Country</small>
+                <strong>Not selected</strong>
+            </div>
+
+            <div class="item">
+                <small>Verification</small>
+                <strong>Pending</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Security</h2>
+
+        <div class="setting">
+            <div>
+                <strong>Password</strong>
+                <span>Change your account password.</span>
+            </div>
+
+            <a href="forgot-password.html">
+                Change
+            </a>
+        </div>
+
+        <div class="setting">
+            <div>
+                <strong>PIN</strong>
+                <span>Secure wallet actions with your account PIN.</span>
+            </div>
+
+            <a href="#">
+                Manage
+            </a>
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Preferences</h2>
+
+        <div class="setting">
+            <div>
+                <strong>Notifications</strong>
+                <span>Manage browser notifications.</span>
+            </div>
+
+            <a href="notifications.html">
+                Open
+            </a>
+        </div>
+
+        <div class="setting">
+            <div>
+                <strong>Transactions</strong>
+                <span>Review wallet activity.</span>
+            </div>
+
+            <a href="transactions.html">
+                View
+            </a>
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Support</h2>
+
+        <div class="setting">
+            <div>
+                <strong>Help Center</strong>
+                <span>bigmin00001@gmail.com</span>
+            </div>
+
+            <a href="dispute.html">
+                Help
+            </a>
+        </div>
+
+        <div class="setting">
+            <div>
+                <strong>Terms</strong>
+                <span>Read WIN ZONE terms.</span>
+            </div>
+
+            <a href="terms.html">
+                Open
+            </a>
+        </div>
+
+        <div class="setting">
+            <div>
+                <strong>Privacy</strong>
+                <span>Read privacy information.</span>
+            </div>
+
+            <a href="privacy.html">
+                Open
+            </a>
+        </div>
+
+    </section>
+
+    <button id="logoutButton" class="logout">
+        Log Out
+    </button>
+
+</main>
+
+<script src="js/global.js"></script>
+
+<script>
+document.getElementById("logoutButton")
+    .addEventListener("click", function() {
+
+        if (window.WINZONE &&
+            typeof window.WINZONE.logout === "function") {
+
+            window.WINZONE.logout();
+
+        } else {
+
+            window.location.href = "login.html";
+
+        }
+
+    });
+</script>
+
+</body>
+</html>

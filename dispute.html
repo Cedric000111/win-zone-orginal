@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dispute | WIN ZONE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background:
+                radial-gradient(circle at 10% 10%,rgba(255,193,7,.08),transparent 30%),
+                #030914;
+            color:white;
+        }
+
+        .dispute-page {
+            max-width:800px;
+            margin:auto;
+            padding:45px 20px 70px;
+        }
+
+        .heading {
+            text-align:center;
+            margin-bottom:28px;
+        }
+
+        .heading h1 {
+            font-size:40px;
+            margin:10px 0;
+        }
+
+        .heading p {
+            color:#9eafc4;
+            line-height:1.7;
+        }
+
+        .card {
+            background:rgba(13,27,46,.95);
+            border:1px solid rgba(255,255,255,.09);
+            border-radius:22px;
+            padding:27px;
+        }
+
+        .group {
+            margin-bottom:20px;
+        }
+
+        label {
+            display:block;
+            margin-bottom:8px;
+            font-weight:700;
+            font-size:13px;
+        }
+
+        input,
+        select,
+        textarea {
+            width:100%;
+            padding:14px;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,.11);
+            background:rgba(255,255,255,.04);
+            color:white;
+            outline:none;
+            font-family:inherit;
+        }
+
+        select option {
+            color:#111;
+        }
+
+        textarea {
+            min-height:150px;
+            resize:vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color:#00e5ff;
+        }
+
+        .help {
+            color:#91a2b7;
+            font-size:12px;
+            margin-top:7px;
+            line-height:1.5;
+        }
+
+        .evidence {
+            padding:17px;
+            border-radius:14px;
+            background:rgba(255,193,7,.05);
+            border:1px solid rgba(255,193,7,.13);
+            color:#cfc5a1;
+            font-size:12px;
+            line-height:1.7;
+            margin-bottom:20px;
+        }
+
+        .submit {
+            width:100%;
+            padding:16px;
+            border:0;
+            border-radius:13px;
+            background:linear-gradient(90deg,#00e5ff,#7c4dff);
+            color:#03101c;
+            font-weight:900;
+            cursor:pointer;
+        }
+
+        .back {
+            display:block;
+            text-align:center;
+            margin-top:12px;
+            padding:13px;
+            color:white;
+            background:rgba(255,255,255,.05);
+            border-radius:12px;
+            text-decoration:none;
+        }
+
+        .status {
+            display:none;
+            margin-top:18px;
+            padding:15px;
+            border-radius:13px;
+            background:rgba(0,229,255,.06);
+            border:1px solid rgba(0,229,255,.15);
+            color:#b4eff8;
+            line-height:1.6;
+            font-size:13px;
+        }
+
+        .status.show {
+            display:block;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="wz-header">
+    <div class="wz-header-inner">
+        <a href="dashboard.html" class="wz-logo">WIN ZONE</a>
+
+        <a href="dashboard.html" style="color:white;text-decoration:none;">
+            Dashboard
+        </a>
+    </div>
+</header>
+
+<main class="dispute-page">
+
+    <section class="heading">
+
+        <div class="wz-badge wz-badge-warning">
+            SUPPORT & DISPUTES
+        </div>
+
+        <h1>Submit a Dispute</h1>
+
+        <p>
+            Use this form when you believe a match result, payment,
+            withdrawal or other transaction requires review.
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <div class="evidence">
+            <strong>Before submitting:</strong>
+            Provide accurate information. For match disputes,
+            include the match code and explain exactly what happened.
+            In production, supporting evidence may be reviewed by the
+            WIN ZONE dispute system.
+        </div>
+
+        <form id="disputeForm">
+
+            <div class="group">
+
+                <label for="category">
+                    Dispute Category
+                </label>
+
+                <select id="category" required>
+
+                    <option value="">
+                        Select category
+                    </option>
+
+                    <option value="match-result">
+                        Match Result
+                    </option>
+
+                    <option value="payment">
+                        Deposit / Payment
+                    </option>
+
+                    <option value="withdrawal">
+                        Withdrawal
+                    </option>
+
+                    <option value="account">
+                        Account Problem
+                    </option>
+
+                    <option value="security">
+                        Security Issue
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="group">
+
+                <label for="matchCode">
+                    Match Code
+                </label>
+
+                <input
+                    id="matchCode"
+                    type="text"
+                    maxlength="5"
+                    placeholder="Example: A7K2"
+                >
+
+                <div class="help">
+                    Required when the dispute concerns a match.
+                </div>
+
+            </div>
+
+            <div class="group">
+
+                <label for="description">
+                    Explain the Issue
+                </label>
+
+                <textarea
+                    id="description"
+                    maxlength="3000"
+                    placeholder="Describe what happened..."
+                    required
+                ></textarea>
+
+            </div>
+
+            <div class="group">
+
+                <label for="contact">
+                    Contact Email
+                </label>
+
+                <input
+                    id="contact"
+                    type="email"
+                    placeholder="Your account email"
+                    required
+                >
+
+            </div>
+
+            <button class="submit" type="submit">
+                Submit Dispute
+            </button>
+
+            <a href="dashboard.html" class="back">
+                Back to Dashboard
+            </a>
+
+            <div id="status" class="status"></div>
+
+        </form>
+
+    </section>
+
+</main>
+
+<script src="js/global.js"></script>
+
+<script>
+document.getElementById("disputeForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const status = document.getElementById("status");
+
+        status.classList.add("show");
+
+        status.innerHTML =
+            "<strong>Dispute prepared.</strong><br>" +
+            "This frontend prototype has not created a real support case. " +
+            "The production backend will authenticate the user, create the dispute, " +
+            "store the evidence and assign a case ID.";
+
+    });
+</script>
+
+</body>
+</html>

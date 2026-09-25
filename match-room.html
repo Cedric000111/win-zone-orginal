@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Private Match Room | WIN ZONE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background:
+                radial-gradient(circle at 50% 0%,rgba(0,229,255,.10),transparent 35%),
+                #030914;
+            color:white;
+        }
+
+        .room {
+            max-width:950px;
+            margin:auto;
+            padding:45px 20px 70px;
+        }
+
+        .room-title {
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .room-title h1 {
+            font-size:40px;
+            margin:10px 0;
+        }
+
+        .room-title p {
+            color:#9eafc4;
+        }
+
+        .code-card {
+            text-align:center;
+            padding:35px 20px;
+            border-radius:25px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,229,255,.08),
+                    rgba(124,77,255,.10)
+                );
+            border:1px solid rgba(255,255,255,.10);
+            margin-bottom:20px;
+        }
+
+        .code-label {
+            color:#9eafc4;
+            font-size:12px;
+            letter-spacing:1px;
+            text-transform:uppercase;
+        }
+
+        .match-code {
+            margin:15px 0;
+            font-size:54px;
+            font-weight:1000;
+            letter-spacing:10px;
+            color:#00e5ff;
+        }
+
+        .copy {
+            padding:11px 18px;
+            border:0;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:800;
+        }
+
+        .players {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+            margin-bottom:20px;
+        }
+
+        .player {
+            padding:22px;
+            border-radius:18px;
+            background:rgba(13,27,46,.95);
+            border:1px solid rgba(255,255,255,.08);
+        }
+
+        .player small {
+            color:#91a2b7;
+        }
+
+        .player h2 {
+            margin:8px 0 0;
+        }
+
+        .match-info {
+            background:rgba(13,27,46,.95);
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:18px;
+            padding:22px;
+        }
+
+        .info-row {
+            display:flex;
+            justify-content:space-between;
+            padding:12px 0;
+            color:#9eafc4;
+        }
+
+        .info-row + .info-row {
+            border-top:1px solid rgba(255,255,255,.05);
+        }
+
+        .info-row strong {
+            color:white;
+        }
+
+        .notice {
+            margin-top:20px;
+            padding:17px;
+            border-radius:15px;
+            background:rgba(255,193,7,.06);
+            border:1px solid rgba(255,193,7,.14);
+            color:#d8d0ae;
+            line-height:1.7;
+            font-size:13px;
+        }
+
+        .actions {
+            display:flex;
+            gap:10px;
+            margin-top:20px;
+            flex-wrap:wrap;
+        }
+
+        .actions a {
+            flex:1;
+            min-width:180px;
+            text-align:center;
+            text-decoration:none;
+            padding:14px;
+            border-radius:12px;
+            background:rgba(255,255,255,.05);
+            color:white;
+        }
+
+        @media(max-width:650px) {
+            .players {
+                grid-template-columns:1fr;
+            }
+
+            .match-code {
+                font-size:39px;
+                letter-spacing:6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="wz-header">
+    <div class="wz-header-inner">
+
+        <a href="dashboard.html" class="wz-logo">
+            WIN ZONE
+        </a>
+
+        <a href="dashboard.html" style="color:white;text-decoration:none;">
+            Dashboard
+        </a>
+
+    </div>
+</header>
+
+<main class="room">
+
+    <section class="room-title">
+
+        <div class="wz-badge wz-badge-success">
+            PRIVATE MATCH
+        </div>
+
+        <h1>Match Room</h1>
+
+        <p>
+            This private room becomes available only after two eligible
+            users have been successfully matched.
+        </p>
+
+    </section>
+
+    <section class="code-card">
+
+        <div class="code-label">
+            Match Code
+        </div>
+
+        <div id="matchCode" class="match-code">
+            A7K2
+        </div>
+
+        <button id="copyCode" class="copy">
+            Copy Match Code
+        </button>
+
+    </section>
+
+    <section class="players">
+
+        <div class="player">
+            <small>PLAYER 1</small>
+            <h2>You</h2>
+        </div>
+
+        <div class="player">
+            <small>PLAYER 2</small>
+            <h2>Opponent</h2>
+        </div>
+
+    </section>
+
+    <section class="match-info">
+
+        <div class="info-row">
+            <span>Stake per player</span>
+            <strong>$5.00</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Prize pool</span>
+            <strong>$10.00</strong>
+        </div>
+
+        <div class="info-row">
+            <span>WIN ZONE commission</span>
+            <strong>10%</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Winner payout</span>
+            <strong>$9.00</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Status</span>
+            <strong>Ready</strong>
+        </div>
+
+    </section>
+
+    <div class="notice">
+        <strong>Important:</strong>
+        The match result must be submitted through the approved
+        result flow. If the result is uncertain or players disagree,
+        use the dispute process. Production funds, match status and
+        results must always be controlled by the secure backend.
+    </div>
+
+    <div class="actions">
+
+        <a href="payout.html">
+            Winner Result
+        </a>
+
+        <a href="loss.html">
+            Loser Result
+        </a>
+
+        <a href="dispute.html">
+            Report a Dispute
+        </a>
+
+    </div>
+
+</main>
+
+<script src="js/global.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const code =
+        document.getElementById("matchCode").textContent.trim();
+
+    document.getElementById("copyCode")
+        .addEventListener("click", async function () {
+
+            try {
+
+                await navigator.clipboard.writeText(code);
+
+                this.textContent = "Copied!";
+
+                setTimeout(() => {
+                    this.textContent = "Copy Match Code";
+                }, 1500);
+
+            } catch (error) {
+
+                this.textContent = "Copy unavailable";
+
+            }
+
+        });
+
+});
+</script>
+
+</body>
+</html>
